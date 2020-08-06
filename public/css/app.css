@@ -2827,6 +2827,7 @@ body.is-menu-visible #menu {
 .image_content{
   width:400px;
   display:block;
+  margin: auto auto;
 }
 .image_content img{
   max-height: 100%;
@@ -2838,18 +2839,10 @@ body.is-menu-visible #menu {
     display:flex;
     flex-direction:column;
     flex-grow: 2;
-    margin:20px;
+    margin:10px 20px;
 }
 
-.column p,h3{
-overflow: hidden;
-  text-overflow: ellipsis;
-  word-wrap: break-word;
-  display: block;
-  line-height: 1em; /* a */
-  max-height: 2em; /* a x number of line to show (ex : 2 line)  */
-  
-}
+
 
 .prix{
     margin:10px;
@@ -2881,14 +2874,4 @@ overflow: hidden;
       margin: 0 auto;
       width:400px;
   }
-}
-
-@decimal-format price {
-  grouping-separator: ",";
-  decimal-separator : "."
-}
-
-.price {
-  number-format: "###,##0.00", "price";
-  /* price is actually redundant as this format would be the default */
 }

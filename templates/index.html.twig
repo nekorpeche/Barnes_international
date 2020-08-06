@@ -23,13 +23,11 @@
                                 <img src='{{ asset("img/"~ bien.image)}}' /> 
                             </div>
                             <div class="column">
-                                <span>{{ bien.date|date("m/d/Y") }}</span>
-                                <h3> {{ bien.nom }}</h3>
+                                <span>{{ bien.date|date("m/d/Y") }} - {% for b in bien.types %} <b>{{b.nom | upper}}</b> {% endfor %}</span>
+                                <h3> {{ bien.nom }}</h3> 
                                 <p>{{ bien.descriptif }}</p>
                                 
-                                {% for b in bien.types %}
-                                    <b>{{b.nom}}</b>
-                                {% endfor %}
+                               
                             </div>
                             <div class="prix">
                                 {{ bien.prix|format_currency('EUR') }}
