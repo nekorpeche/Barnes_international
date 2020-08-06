@@ -1,0 +1,41 @@
+{% extends "base.html.twig" %}
+{% block filtre %}
+    {{ form(form) }}
+    
+{% endblock %}
+{% block content %}
+
+    <section id="main" class="wrapper">
+        <div class="inner">
+           {% if type %}
+           <h2> Voici nos {{ type.nom }}s :</h2> 
+           <a href="/"><h4>Voir tout les biens</h4></a>
+           {% else %}
+               <h2> Voici nos biens :</h2>
+           {% endif %}
+            <div class="content">
+                			
+                    
+                    {% for bien in biens %}
+     
+                        <div class="card">	
+                            <div class="image_content">
+                                <img src='{{ asset("img/"~ bien.image)}}' /> 
+                            </div>
+                            <div class="column">
+                                <span>{{ bien.date|date("m/d/Y") }}</span>
+                                <h3> {{ bien.nom }}</h3>
+                                <p>{{ bien.descriptif }}</p>
+                            </div>
+                            <div class="prix">
+                                {{ bien.prix|format_currency('EUR') }}
+                            </div>
+                        </div>
+                    {% endfor %}
+                
+
+            </div>
+	</div>
+    </section>
+       
+{% endblock %}
